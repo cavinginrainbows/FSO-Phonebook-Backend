@@ -1,0 +1,19 @@
+{
+  "name": "phonebook",
+  "version": "1.0.0",
+  "description": "Phonebook app backend ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/cavinginrainbows/FSO-Phonebook-Backend.git"
+  },
+  "author": "Lewis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cavinginrainbows/FSO-Phonebook-Backend/issues"
+  },
+  "homepage": "https://github.com/cavinginrainbows/FSO-Phonebook-Backend#readme"
+}
