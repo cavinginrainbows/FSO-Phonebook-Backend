@@ -2,6 +2,9 @@
   "name": "phonebook",
   "version": "1.0.0",
   "description": "Phonebook app backend ",
+  "engines": {
+    "node": "16.x"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -19,6 +22,7 @@
   },
   "homepage": "https://github.com/cavinginrainbows/FSO-Phonebook-Backend#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.2",
     "morgan": "^1.10.0"
   },
