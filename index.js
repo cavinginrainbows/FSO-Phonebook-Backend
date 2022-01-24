@@ -7,7 +7,6 @@ const app = express()
 app.use(cors())
 
 const Person = require('./models/contact')
-const note = require('../fullstack/part3/models/note')
 
 app.use(express.static('build'))
 app.use(express.json())
