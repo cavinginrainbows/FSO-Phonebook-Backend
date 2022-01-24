@@ -12,9 +12,9 @@ app.use(express.static('build'))
 app.use(express.json())
 
 morgan.token('postData', (request) => {
-    if (request.method == 'POST') return ' ' + JSON.stringify(request.body);
-    else return ' ';
-});
+    if (request.method === 'POST') return ' ' + JSON.stringify(request.body)
+    else return ' '
+})
 const logger = morgan(':method :url :status :res[content-length] - :response-time ms :postData')
 app.use(logger)
 
@@ -48,10 +48,10 @@ app.get('/api/persons/:id', (request, response, next) => {
 
 app.delete('/api/persons/:id', (request, response, next) => {
     Person.findByIdAndRemove(request.params.id)
-        .then(result => {
+        .then(() => {
             response.status(204).end()
         })
-        .catch(error => nextDay(error))
+        .catch(error => next(error))
 })
 
 app.post('/api/persons', (request, response, next) => {
@@ -61,7 +61,7 @@ app.post('/api/persons', (request, response, next) => {
         return response.status(400).json({
             error: 'name or number missing'
         })
-    } 
+    }
 
     const newPerson = new Person({
         name: body.name,
@@ -92,14 +92,14 @@ app.put('/api/persons/:id', (request, response, next) => {
 })
 
 const unknownEndpoint = (request, response) => {
-    response.status(404).send({ error: 'unknown endpoint '})
+    response.status(404).send({ error: 'unknown endpoint ' })
 }
 
 app.use(unknownEndpoint)
 
 const errorHandler = (error, request, response, next) => {
     console.log(error.message)
-    
+
     if (error.name === 'CastError') {
         return response.status(400).send({ error: 'malformatted id' })
     } else if (error.name === 'ValidationError') {
